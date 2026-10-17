@@ -1,4 +1,10 @@
-# Sentiment Analysis on IMDB Reviews 
+# Sentiment Analysis on IMDB Reviews
+
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?logo=pytorch&logoColor=white)
+![NLP](https://img.shields.io/badge/NLP-BiLSTM%20%7C%20CNN-0A66C2)
+
+**Result:** 86.2% test accuracy (25K reviews) with a BiLSTM trained from scratch, compared against a CNN + BiLSTM hybrid. [Jump to results](#results).
 
 This project implements two deep learning models for **binary sentiment classification** on the IMDB movie review dataset:
 
@@ -111,20 +117,21 @@ Linear → Output
 
 | Metric     | BiLSTM | CNN + BiLSTM |
 |------------|--------|-------------|
-| Accuracy   | 86.48% | 86.42%      |
-| Precision  | 0.8605 | 0.8872      |
-| Recall     | 0.8708 | 0.8346      |
-| F1 Score   | 0.8656 | 0.8601      |
-| Test Loss  | 0.3723 | 0.3282      |
+| Accuracy   | 86.18% | 85.90%      |
+| Precision  | 0.8757 | 0.8646      |
+| Recall     | 0.8434 | 0.8514      |
+| F1 Score   | 0.8592 | 0.8579      |
+| Test Loss  | 0.3493 | 0.3289      |
+
+*Test set: 25,000 reviews (balanced). Values match the saved outputs in `NLP_Sentiment_Analysis.ipynb`.*
 
 ---
 
 ## Key Observations
 
 - Both models achieve **~86% accuracy**
-- **CNN + BiLSTM → higher precision**
-- **BiLSTM → higher recall and F1**
-- Hybrid model captures **n-gram patterns better**
+- **BiLSTM → higher precision and F1** (0.876 / 0.859)
+- **CNN + BiLSTM → higher recall and lower test loss** (0.851 / 0.329): the convolutional n-gram features catch more positive reviews and give better-calibrated probabilities
 
 ---
 
